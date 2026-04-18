@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dn0pu3dou3q0d"]
+
+[ext_resource type="Script" uid="uid://b5u8cec831p7t" path="res://Script/ana_menu.gd" id="1_085df"]
+
+[node name="AnaMenu" type="Node2D" unique_id=968554928]
+script = ExtResource("1_085df")
+
+[node name="Button" type="Button" parent="." unique_id=152957906]
+offset_left = 402.0
+offset_top = 422.0
+offset_right = 782.0
+offset_bottom = 532.0
+theme_override_font_sizes/font_size = 50
+text = "Play"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

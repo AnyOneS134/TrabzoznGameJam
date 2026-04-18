@@ -19,7 +19,7 @@ var move_duration: float = 0.3
 func _process(delta: float) -> void:
 	
 	if not is_on_floor():
-		velocity.y = gravty * delta * 30 
+		velocity.y = gravty * delta * 50 
 		
 	move_and_slide()
 		
