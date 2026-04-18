@@ -536,13 +536,13 @@ position = Vector2(225, 559)
 [node name="StaticBody2D2" parent="." unique_id=1169456808 instance=ExtResource("7_xvxua")]
 position = Vector2(361, 559)
 
-[node name="StaticBody2D3" parent="." unique_id=502506708 instance=ExtResource("7_xvxua")]
-position = Vector2(283, 563)
-renk_index = 1
-
 [node name="Camera2D" type="Camera2D" parent="." unique_id=562255456]
 position = Vector2(190.00002, 588)
 scale = Vector2(0.5544325, 0.5541183)
 zoom = Vector2(4, 4)
+
+[node name="StaticBody2D3" parent="." unique_id=502506708 instance=ExtResource("7_xvxua")]
+position = Vector2(283, 563)
+renk_index = 1
 
 [connection signal="animation_finished" from="CharacterBody2D/AnimatedSprite2D" to="CharacterBody2D" method="_on_animated_sprite_2d_animation_finished"]
