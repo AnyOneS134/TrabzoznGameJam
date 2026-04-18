@@ -4,6 +4,8 @@ extends CharacterBody2D
 @onready var main_music_player = $MainMusicPlayer 
 @onready var canvas_layer = $"../CanvasLayer"
 
+var gravty = ProjectSettings.get_setting("physics/2d/default_gravity")
+
 var bpm: float = 120.0
 var seconds_per_beat: float 
 var hit_tolerance: float = 0.12 
@@ -14,6 +16,13 @@ var move_distance: float = 128.0
 # 2. Hareket Süresi: Karakterin yeni konuma kaç saniyede kayacağını belirliyoruz
 var move_duration: float = 0.3 
 
+func _process(delta: float) -> void:
+	
+	if not is_on_floor():
+		velocity.y = gravty * delta * 30 
+		
+	move_and_slide()
+		
 func _ready():
 	seconds_per_beat = 60.0 / bpm
 	dummy_bass_player.play()
