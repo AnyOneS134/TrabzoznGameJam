@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://2p5ja4n2423g"]
+
+[ext_resource type="Script" uid="uid://3vcxagbm2kvt" path="res://movement.gd" id="1_epypp"]
+[ext_resource type="Texture2D" uid="uid://3wgqjvelioif" path="res://icon.svg" id="2_0hol4"]
+[ext_resource type="AudioStream" uid="uid://btd2nvlneihad" path="res://kikc.ogg" id="3_q6r6c"]
+[ext_resource type="AudioStream" uid="uid://ba2xmhuc5fpul" path="res://main.ogg" id="4_0hol4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kdubu"]
+size = Vector2(116, 123)
+
+[node name="Node2D" type="Node2D" unique_id=1109650280]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=7231338]
+script = ExtResource("1_epypp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=600581537]
+position = Vector2(0, -1.5)
+shape = SubResource("RectangleShape2D_kdubu")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=1435813646]
+texture = ExtResource("2_0hol4")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="CharacterBody2D" unique_id=599795350]
+stream = ExtResource("3_q6r6c")
+volume_db = -17.614
+autoplay = true
+
+[node name="MainMusicPlayer" type="AudioStreamPlayer" parent="CharacterBody2D" unique_id=1795757580]
+stream = ExtResource("4_0hol4")
+volume_db = -34.537
