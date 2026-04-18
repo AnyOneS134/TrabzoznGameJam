@@ -6,7 +6,7 @@ extends CharacterBody2D
 var bpm: float = 120.0
 var seconds_per_beat: float 
 var hit_tolerance: float = 0.12 
-
+#	var combo --> art arda 5 kombo olursa eğer +1 süre eklenir 
 # 1. Mesafe Artırıldı: Karakterin daha uzun ilerlemesi için değeri yükselttik (Örn: 64 yerine 128)
 var move_distance: float = 128.0 
 
@@ -53,3 +53,4 @@ func try_move(direction: Vector2):
 				
 		else:
 			print("Ritim kaçtı! Sapma: ", time_difference)
+			print("Süre Azaldı... Diak et ")

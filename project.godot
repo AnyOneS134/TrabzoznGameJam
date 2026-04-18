@@ -13,7 +13,7 @@ config_version=5
 config/name="movement"
 run/main_scene="uid://2p5ja4n2423g"
 config/features=PackedStringArray("4.6", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://Sprite/icon.svg"
 
 [physics]
 
