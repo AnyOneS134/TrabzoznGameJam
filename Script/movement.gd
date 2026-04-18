@@ -3,23 +3,24 @@ extends CharacterBody2D
 @onready var dummy_bass_player = $AudioStreamPlayer2D 
 @onready var main_music_player = $MainMusicPlayer 
 @onready var canvas_layer = $"../CanvasLayer"
+@onready var sprite = $AnimatedSprite2D
 
 var gravty = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 var bpm: float = 120.0
 var seconds_per_beat: float 
-var hit_tolerance: float = 0.12 
+var hit_tolerance: float = 0.14 
 #	var combo --> art arda 5 kombo olursa eğer +1 süre eklenir 
 # 1. Mesafe Artırıldı: Karakterin daha uzun ilerlemesi için değeri yükselttik (Örn: 64 yerine 128)
-var move_distance: float = 128.0 
+var move_distance: float = 70 
 
 # 2. Hareket Süresi: Karakterin yeni konuma kaç saniyede kayacağını belirliyoruz
-var move_duration: float = 0.3 
+var move_duration: float = 0.4 
 
 func _process(delta: float) -> void:
 	
 	if not is_on_floor():
-		velocity.y = gravty * delta * 50 
+		velocity.y = gravty * delta * 40
 		
 	move_and_slide()
 		
@@ -31,8 +32,12 @@ func _ready():
 func _input(event):
 	if event.is_action_pressed("ui_right"):
 		try_move(Vector2.RIGHT)
+		sprite.flip_h = false
+		sprite.play("desh")
 	elif event.is_action_pressed("ui_left"):
 		try_move(Vector2.LEFT)
+		sprite.flip_h = true
+		sprite.play("desh")
 	elif event.is_action_pressed("ui_up"):
 		try_move(Vector2.UP)
 	elif event.is_action_pressed("ui_down"):
@@ -71,3 +76,7 @@ func try_move(direction: Vector2):
 			
 			canvas_layer.combo_index = 0
 			canvas_layer.kombo_label.text = str(canvas_layer.combo_index)
+
+
+func _on_animated_sprite_2d_animation_finished() -> void:
+	sprite.play("idle")

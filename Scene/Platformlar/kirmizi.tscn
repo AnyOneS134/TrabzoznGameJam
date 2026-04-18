@@ -1,33 +1,35 @@
 [gd_scene format=3 uid="uid://bqvwi6vfjh6yj"]
 
-[ext_resource type="Texture2D" uid="uid://3wgqjvelioif" path="res://Sprite/icon.svg" id="1_28y7p"]
 [ext_resource type="Script" uid="uid://6auyxm70fbj" path="res://Script/kirmizi.gd" id="1_suf70"]
+[ext_resource type="Texture2D" uid="uid://c0chho2oajrsm" path="res://Sprite/Engeler/yesil.png" id="2_suf70"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_suf70"]
+size = Vector2(10.768385, 5.263155)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nxijf"]
-size = Vector2(18.961723, 10.526312)
+size = Vector2(10.789486, 3.9473677)
 
 [node name="StaticBody2D" type="StaticBody2D" unique_id=782734911]
 scale = Vector2(4.2717643, 0.7600006)
 script = ExtResource("1_suf70")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=533303678]
-visible = false
+position = Vector2(9.2333835e-07, -1.1764065e-07)
+scale = Vector2(0.99999976, 0.9999997)
 shape = SubResource("RectangleShape2D_suf70")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1942034562]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1717072749]
-position = Vector2(-0.117047265, -10.526306)
-scale = Vector2(0.99999976, 0.9999996)
+position = Vector2(0.010508129, -0.6578939)
+scale = Vector2(0.9960963, 0.9999996)
 shape = SubResource("RectangleShape2D_nxijf")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2087897174]
-position = Vector2(-0.010138943, 0.2378434)
+position = Vector2(-5.551115e-17, 3.5527137e-15)
 rotation = 3.1430955
 scale = Vector2(0.15593293, 0.1539046)
-texture = ExtResource("1_28y7p")
+texture = ExtResource("2_suf70")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
