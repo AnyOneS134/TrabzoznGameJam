@@ -10,7 +10,7 @@ var gravty = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 var bpm: float = 120.0
 var seconds_per_beat: float 
-var hit_tolerance: float = 0.13 
+var hit_tolerance: float = 0.17 
 #	var combo --> art arda 5 kombo olursa eğer +1 süre eklenir 
 # 1. Mesafe Artırıldı: Karakterin daha uzun ilerlemesi için değeri yükselttik (Örn: 64 yerine 128)
 var move_distance: float = 70 

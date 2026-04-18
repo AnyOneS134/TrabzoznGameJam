@@ -1,7 +1,6 @@
 [gd_scene format=4 uid="uid://2p5ja4n2423g"]
 
 [ext_resource type="Script" uid="uid://3vcxagbm2kvt" path="res://Script/movement.gd" id="1_l42dj"]
-[ext_resource type="Texture2D" uid="uid://3wgqjvelioif" path="res://Sprite/icon.svg" id="2_60wmb"]
 [ext_resource type="Texture2D" uid="uid://et86f7mm3nsi" path="res://Sprite/Player/29999.png" id="2_blrne"]
 [ext_resource type="Texture2D" uid="uid://cona1ok084y1e" path="res://Sprite/Player/noktaBeyaz.png" id="2_p2l5e"]
 [ext_resource type="Texture2D" uid="uid://03fpt604uy0l" path="res://Sprite/Player/dusus.png" id="3_a84m2"]
@@ -511,7 +510,7 @@ tracks/0/path = NodePath("CharacterBody2D/Sprite2D:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.33, 0.5),
+"times": PackedFloat32Array(0, 0.23333333, 0.43333334),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(1, 1), Vector2(1e-05, 1e-05), Vector2(0.15, 0.15)]
@@ -523,7 +522,7 @@ tracks/1/path = NodePath("CharacterBody2D/Sprite2D:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.33, 0.5),
+"times": PackedFloat32Array(0, 0.23333333, 0.43333334),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.6784314), Color(0.8235294, 0.07058824, 0, 1)]
@@ -630,10 +629,5 @@ renk_index = 1
 position = Vector2(190.00002, 588)
 scale = Vector2(0.5544325, 0.5541183)
 zoom = Vector2(3.5, 3.5)
-
-[node name="Icon" type="Sprite2D" parent="." unique_id=1653934262]
-position = Vector2(178, 593)
-scale = Vector2(0.1719827, -0.5941405)
-texture = ExtResource("2_60wmb")
 
 [connection signal="animation_finished" from="CharacterBody2D/AnimatedSprite2D" to="CharacterBody2D" method="_on_animated_sprite_2d_animation_finished"]
