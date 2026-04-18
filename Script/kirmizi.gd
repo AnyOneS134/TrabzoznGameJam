@@ -3,12 +3,12 @@ extends StaticBody2D
 @onready var sprite = $Sprite2D
 
 @onready var platform_renk = [
-	{"kirmizi" : preload("res://Sprite/icon.svg")},
-	{"sari" : preload("res://Sprite/icon.svg")},
-	{"yesil" : preload("res://Sprite/icon.svg")}
+	preload("res://Sprite/Engeler/yesil.png"),
+	preload("res://Sprite/Engeler/sari.png"),
+	preload("res://Sprite/Engeler/kirmizi.png")
 ]
 
-var renk_index = 0
+@export var renk_index = 0
 
 
 func _ready() -> void:
