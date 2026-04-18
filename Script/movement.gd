@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @onready var dummy_bass_player = $AudioStreamPlayer2D 
 @onready var main_music_player = $MainMusicPlayer 
+@onready var canvas_layer = $"../CanvasLayer"
 
 var bpm: float = 120.0
 var seconds_per_beat: float 
@@ -31,7 +32,6 @@ func _input(event):
 func try_move(direction: Vector2):
 	if dummy_bass_player.playing:
 		var current_time = dummy_bass_player.get_playback_position()
-		
 		var closest_beat_time = round(current_time / seconds_per_beat) * seconds_per_beat
 		var time_difference = abs(current_time - closest_beat_time)
 		
@@ -50,7 +50,15 @@ func try_move(direction: Vector2):
 			tween.tween_property(self, "position", target_position, move_duration)\
 				.set_trans(Tween.TRANS_SINE)\
 				.set_ease(Tween.EASE_OUT)
-				
+			canvas_layer.combo_index += 1 
+			canvas_layer.kombo_label.text = str(canvas_layer.combo_index)
+			
 		else:
 			print("Ritim kaçtı! Sapma: ", time_difference)
+			print(canvas_layer.kalan_sure)
 			print("Süre Azaldı... Diak et ")
+			canvas_layer.kalan_sure -= 1 
+			print(canvas_layer.kalan_sure)
+			
+			canvas_layer.combo_index = 0
+			canvas_layer.kombo_label.text = str(canvas_layer.combo_index)

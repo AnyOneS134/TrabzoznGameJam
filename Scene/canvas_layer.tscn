@@ -28,3 +28,18 @@ theme_override_font_sizes/font_size = 70
 text = "60"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Kombo" type="Panel" parent="." unique_id=1791788502]
+offset_left = 47.0
+offset_top = 7.0
+offset_right = 191.0
+offset_bottom = 104.0
+
+[node name="Label" type="Label" parent="Kombo" unique_id=2018040499]
+layout_mode = 0
+offset_right = 138.0
+offset_bottom = 94.0
+theme_override_font_sizes/font_size = 70
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
