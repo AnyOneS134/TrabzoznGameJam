@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cqhuv53jyntmn"
-path="res://.godot/imported/zıplama.png-c549be79c9e7e27618fbeb215893d0f7.ctex"
+uid="uid://teek5bcqx74t"
+path="res://.godot/imported/ziplama.png-b5ad33ca9bf9953e7301555b5d754555.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprite/Player/zıplama.png"
-dest_files=["res://.godot/imported/zıplama.png-c549be79c9e7e27618fbeb215893d0f7.ctex"]
+source_file="res://Sprite/Player/ziplama.png"
+dest_files=["res://.godot/imported/ziplama.png-b5ad33ca9bf9953e7301555b5d754555.ctex"]
 
 [params]
 

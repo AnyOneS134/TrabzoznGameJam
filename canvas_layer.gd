@@ -5,7 +5,7 @@ extends CanvasLayer
 @onready var kombo_label = $Kombo/Label
 var combo_index = 0
 # Sayacı (zamanı) tutacak sayısal değişkenimiz
-var kalan_sure: float = 60.0 
+var kalan_sure: float = 10
 var oyun_bitti: bool = false # "Kaybettin" yazısının saniyede 60 kere çalışmasını engellemek için
 
 func _ready() -> void:

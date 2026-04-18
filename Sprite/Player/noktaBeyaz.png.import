@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://kn2wda4oha8t"
-path="res://.godot/imported/düşüş.png-2673d34228729399372875e06187ee08.ctex"
+uid="uid://cona1ok084y1e"
+path="res://.godot/imported/noktaBeyaz.png-1574ab36d9a13dbaf5a5f63cdc9eb98d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprite/Player/düşüş.png"
-dest_files=["res://.godot/imported/düşüş.png-2673d34228729399372875e06187ee08.ctex"]
+source_file="res://Sprite/Player/noktaBeyaz.png"
+dest_files=["res://.godot/imported/noktaBeyaz.png-1574ab36d9a13dbaf5a5f63cdc9eb98d.ctex"]
 
 [params]
 
