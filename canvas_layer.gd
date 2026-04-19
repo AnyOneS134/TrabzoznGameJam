@@ -3,7 +3,10 @@ extends CanvasLayer
 # Label düğümünü tutacak değişken (Adını karışmaması için değiştirdik)
 @onready var sayac_label = $Sayac/Label
 @onready var kombo_label = $Kombo/Label
+@onready var tmor_lable = $tmor/Label
 var combo_index = 0
+var tmor_index = 0
+var tmor_hedef = 10
 # Sayacı (zamanı) tutacak sayısal değişkenimiz
 var kalan_sure: float = 10
 var oyun_bitti: bool = false # "Kaybettin" yazısının saniyede 60 kere çalışmasını engellemek için
@@ -13,10 +16,15 @@ func _ready() -> void:
 	sayac_label.text = str(int(kalan_sure))
 
 func _process(delta: float) -> void:
+	
+	
+	if tmor_index == tmor_hedef:
+		pass
+		
+		
 	if combo_index == 5:
 				kalan_sure += 1 
 				combo_index = 0
-				
 	if kalan_sure > 0:
 		kalan_sure -= delta
 		# Ekranda 59.8764 gibi küsuratlı sayılar görmek istemiyorsan int() ile tam sayıya çevirebilirsin

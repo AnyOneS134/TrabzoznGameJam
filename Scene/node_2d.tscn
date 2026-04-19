@@ -10,8 +10,9 @@
 [ext_resource type="PackedScene" uid="uid://dikw5b7aj31wl" path="res://Scene/canvas_layer.tscn" id="5_60wmb"]
 [ext_resource type="Texture2D" uid="uid://teek5bcqx74t" path="res://Sprite/Player/ziplama.png" id="5_op24p"]
 [ext_resource type="PackedScene" uid="uid://n5wlqxecfkux" path="res://Scene/tile_map_layer.tscn" id="6_irwgg"]
-[ext_resource type="PackedScene" uid="uid://bqvwi6vfjh6yj" path="res://Scene/Platformlar/kirmizi.tscn" id="7_xvxua"]
+[ext_resource type="Script" uid="uid://c8rcvmaqvao3y" path="res://Scene/camera_2d.gd" id="12_cjhdi"]
 [ext_resource type="PackedScene" uid="uid://x51nu2lfn3kk" path="res://Scene/altın.tscn" id="12_p2l5e"]
+[ext_resource type="PackedScene" uid="uid://cibayivlxyseh" path="res://Scene/tmor.tscn" id="13_4qn2c"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3opw3"]
 atlas = ExtResource("2_blrne")
@@ -526,7 +527,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.3, 0.43333334),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.75686276), Color(0.77254903, 0, 0.02745098, 0.6862745)]
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.75686276), Color(0.18257928, 0.424279, 0.6353004, 0.6862745)]
 }
 
 [sub_resource type="Animation" id="Animation_4qn2c"]
@@ -579,7 +580,7 @@ _data = {
 [node name="Node2D" type="Node2D" unique_id=1109650280]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=7231338 groups=["Player"]]
-position = Vector2(100, 549)
+position = Vector2(167, 611)
 script = ExtResource("1_l42dj")
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=1590202695]
@@ -589,7 +590,7 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_p2l5e")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=1799322724]
-position = Vector2(-4, -13)
+position = Vector2(-4, -11)
 sprite_frames = SubResource("SpriteFrames_b4pas")
 animation = &"idle"
 autoplay = "idle"
@@ -615,24 +616,36 @@ libraries/ = SubResource("AnimationLibrary_cjhdi")
 
 [node name="TileMapLayer" parent="." unique_id=1694814769 instance=ExtResource("6_irwgg")]
 position = Vector2(566, 291)
-tile_map_data = PackedByteArray("AADh/xUAAAACAAMAAADi/xUAAAACAAMAAADj/xUAAAACAAMAAADk/xUAAAACAAMAAADl/xUAAAACAAMAAADm/xUAAAACAAMAAADn/xUAAAACAAMAAADo/xUAAAACAAMAAADp/xUAAAACAAMAAADq/xUAAAACAAMAAADr/xUAAAACAAMAAADs/xUAAAACAAMAAADt/xUAAAACAAMAAADu/xUAAAACAAMAAADv/xUAAAACAAMAAADw/xUAAAACAAMAAADx/xUAAAACAAMAAADy/xUAAAACAAMAAADz/xUAAAACAAMAAAD0/xUAAAACAAMAAAD1/xUAAAACAAMAAAD2/xUAAAACAAMAAAD3/xUAAAACAAMAAAD4/xUAAAACAAMAAAD5/xUAAAACAAMAAAD6/xUAAAACAAMAAAD7/xUAAAACAAMAAAD8/xUAAAADAAEAAAD9/xUAAAAEAAEAAAD+/xUAAAAFAAEAAAD//xUAAAADAAEAAAAAABUAAAAEAAEAAAABABUAAAAFAAEAAAACABUAAAADAAEAAAADABUAAAAEAAEAAAAEABUAAAAFAAEAAAAFABUAAAADAAEAAAAGABUAAAAEAAEAAAAHABUAAAAFAAEAAAAKABYAAAAHAAIAAAAKABcAAAAHAAMAAADg/xUAAAAEAAEAAADf/xUAAAAEAAEAAADe/xUAAAAEAAEAAADd/xUAAAAEAAEAAADc/xUAAAAEAAEAAADb/xUAAAAEAAEAAAA=")
-
-[node name="StaticBody2D" parent="." unique_id=782734911 instance=ExtResource("7_xvxua")]
-position = Vector2(225, 559)
-
-[node name="StaticBody2D2" parent="." unique_id=1169456808 instance=ExtResource("7_xvxua")]
-position = Vector2(361, 559)
-
-[node name="StaticBody2D3" parent="." unique_id=502506708 instance=ExtResource("7_xvxua")]
-position = Vector2(283, 563)
-renk_index = 1
+tile_map_data = PackedByteArray("AAAKABYAAAAHAAIAAAAKABcAAAAHAAMAAADd/xYABAABAAAAAADd/xcABAABAAEAAADe/xYABAACAAAAAADe/xcABAACAAEAAADf/xYABAADAAAAAADf/xcABAADAAEAAADg/xYABAABAAAAAADg/xcABAABAAEAAADh/xYABAACAAAAAADh/xcABAACAAEAAADi/xYABAADAAAAAADi/xcABAADAAEAAADj/xYABAABAAAAAADj/xcABAABAAEAAADk/xYABAACAAAAAADk/xcABAACAAEAAADl/xYABAADAAAAAADl/xcABAADAAEAAADm/xYABAABAAAAAADm/xcABAABAAEAAADn/xYABAACAAAAAADn/xcABAACAAEAAADo/xYABAADAAAAAADo/xcABAADAAEAAADp/xYABAABAAAAAADp/xcABAABAAEAAADq/xYABAACAAAAAADq/xcABAACAAEAAADr/xYABAADAAAAAADr/xcABAADAAEAAADs/xYABAABAAAAAADs/xcABAABAAEAAADt/xYABAACAAAAAADt/xcABAACAAEAAADu/xYABAADAAAAAADu/xcABAADAAEAAADv/xYABAACAAAAAADv/xcABAACAAEAAADw/xYABAADAAAAAADw/xcABAADAAEAAADx/xYAAAACAAEAAADx/xcAAAACAAEAAADc/xYABAAAAAAAAADc/xcABAAAAAEAAADc/xUAAAACAAEAAADc/xQAAAACAAEAAADc/xMAAAACAAEAAADc/xIAAAACAAEAAADc/xEAAAACAAEAAADc/xAAAAACAAEAAADc/w8AAAACAAEAAADc/w4AAAACAAEAAADc/w0AAAACAAEAAADc/wwAAAACAAEAAADc/wsAAAACAAEAAADc/woAAAACAAEAAADc/wkAAAACAAEAAADc/wgAAAACAAEAAADc/wcAAAACAAEAAADc/wYAAAACAAEAAADc/wUAAAACAAEAAADc/wQAAAACAAEAAADc/wMAAAACAAEAAADc/wIAAAACAAEAAADc/wEAAAACAAEAAADc/wAAAAACAAEAAADc////AAACAAEAAADc//7/AAACAAEAAADc//3/AAACAAEAAADc//z/AAACAAEAAADc//v/AAACAAEAAADc//r/AAACAAEAAADc//n/AAACAAEAAADc//j/AAACAAEAAADc//f/AAACAAEAAADc//b/AAACAAEAAADc//X/AAACAAEAAADc//T/AAACAAEAAADc//P/AAACAAEAAADc//L/AAACAAEAAADc//H/AAACAAEAAADc//D/AAACAAEAAADc/+//AAACAAEAAADc/+7/AAACAAEAAADc/+3/AAACAAEAAADc/+z/AAACAAEAAADc/+v/AAACAAEAAADc/+r/AAACAAEAAADc/+n/AAACAAEAAADc/+j/AAACAAEAAADc/+f/AAACAAEAAADc/+T/AAACAAEAAADc/+P/AAACAAEAAADc/+b/AAACAAEAAADc/+X/AAACAAEAAADx/xUAAAACAAEAAADx/xQAAAACAAEAAADx/xMAAAACAAEAAADx/xIAAAACAAEAAADx/xEAAAACAAEAAADx/xAAAAACAAEAAADx/w8AAAACAAEAAADx/w4AAAACAAEAAADx/w0AAAACAAEAAADx/wwAAAACAAEAAADx/wsAAAACAAEAAADx/woAAAACAAEAAADx/wkAAAACAAEAAADx/wgAAAACAAEAAADx/wcAAAACAAEAAADx/wYAAAACAAEAAADx/wUAAAACAAEAAADx/wQAAAACAAEAAADx/wMAAAACAAEAAADx/wIAAAACAAEAAADx/wEAAAACAAEAAADx/wAAAAACAAEAAADx////AAACAAEAAADx//7/AAACAAEAAADx//3/AAACAAEAAADx//z/AAACAAEAAADx//v/AAACAAEAAADx//r/AAACAAEAAADx//n/AAACAAEAAADx//j/AAACAAEAAADx//f/AAACAAEAAADx//b/AAACAAEAAADx//X/AAACAAEAAADx//T/AAACAAEAAADx//P/AAACAAEAAADx//L/AAACAAEAAADx//H/AAACAAEAAADx//D/AAACAAEAAADx/+//AAACAAEAAADx/+7/AAACAAEAAADx/+3/AAACAAEAAADx/+z/AAACAAEAAADx/+v/AAACAAEAAADx/+r/AAACAAEAAADe/w0AAQAAAAAAAADf/w0AAQABAAAAAADg/w0AAQACAAAAAADh/w0AAQADAAAAAADi/w0AAQAEAAAAAADk/wsAAQAAAAAAAADl/wsAAQABAAAAAADm/wsAAQACAAAAAADn/wsAAQADAAAAAADo/wsAAQAEAAAAAADp/wgAAQAAAAAAAADq/wgAAQABAAAAAADr/wgAAQACAAAAAADs/wgAAQADAAAAAADt/wgAAQAEAAAAAADj/wQAAQAAAAAAAADk/wQAAQABAAAAAADl/wQAAQACAAAAAADm/wQAAQADAAAAAADn/wQAAQAEAAAAAADd/wAAAQAAAAAAAADe/wAAAQABAAAAAADf/wAAAQACAAAAAADg/wAAAQACAAAAAADh/wAAAQADAAAAAADs/wAAAQABAAAAAADt/wAAAQACAAAAAADu/wAAAQACAAAAAADv/wAAAQADAAAAAADw/wAAAQAEAAAAAADk//n/AQAAAAAAAADl//n/AQABAAAAAADm//n/AQACAAAAAADn//n/AQADAAAAAADo//n/AQAEAAAAAADr/wAAAQAAAAAAAADi/wAAAQAEAAAAAADo/xEAAQAAAAAAAADp/xEAAQABAAAAAADq/xEAAQACAAAAAADr/xEAAQADAAAAAADs/xEAAQAEAAAAAADh/xEAAQAAAAAAAADi/xEAAQABAAAAAADj/xEAAQACAAAAAADk/xEAAQADAAAAAADl/xEAAQAEAAAAAADk//T/AQAAAAAAAADl//T/AQABAAAAAADm//T/AQACAAAAAADn//T/AQADAAAAAADo//T/AQAEAAAAAADk/+//AQAAAAAAAADl/+//AQABAAAAAADm/+//AQACAAAAAADn/+//AQADAAAAAADo/+//AQAEAAAAAAA=")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=562255456]
-position = Vector2(190.00002, 588)
+position = Vector2(165, 583)
 scale = Vector2(0.5544325, 0.5541183)
 zoom = Vector2(3.5, 3.5)
+script = ExtResource("12_cjhdi")
 
 [node name="altın" parent="." unique_id=2039136841 instance=ExtResource("12_p2l5e")]
-position = Vector2(160, 598)
+position = Vector2(300, 619)
+
+[node name="tmor" parent="." unique_id=1147737813 instance=ExtResource("13_4qn2c")]
+position = Vector2(31, 620)
+
+[node name="altın2" parent="." unique_id=491091037 instance=ExtResource("12_p2l5e")]
+position = Vector2(61, 481)
+
+[node name="altın3" parent="." unique_id=1936649179 instance=ExtResource("12_p2l5e")]
+position = Vector2(241, 403)
+
+[node name="tmor2" parent="." unique_id=35995197 instance=ExtResource("13_4qn2c")]
+position = Vector2(156, 447)
+
+[node name="tmor3" parent="." unique_id=1164434702 instance=ExtResource("13_4qn2c")]
+position = Vector2(141, 336)
+
+[node name="tmor4" parent="." unique_id=2029295199 instance=ExtResource("13_4qn2c")]
+position = Vector2(278, 269)
+
+[node name="altın4" parent="." unique_id=1755181705 instance=ExtResource("12_p2l5e")]
+position = Vector2(58, 266)
 
 [connection signal="animation_finished" from="CharacterBody2D/AnimatedSprite2D" to="CharacterBody2D" method="_on_animated_sprite_2d_animation_finished"]

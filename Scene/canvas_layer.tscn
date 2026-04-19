@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dikw5b7aj31wl"]
 
 [ext_resource type="Script" uid="uid://cv2mlc0rvww66" path="res://canvas_layer.gd" id="1_ml06h"]
+[ext_resource type="Texture2D" uid="uid://bpxbi1jjep6km" path="res://Sprite/hava blok (1).png" id="2_vcvjm"]
 
 [node name="CanvasLayer" type="CanvasLayer" unique_id=565253147]
 script = ExtResource("1_ml06h")
@@ -43,3 +44,22 @@ theme_override_font_sizes/font_size = 70
 text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="tmor" type="Panel" parent="." unique_id=1229325514]
+offset_left = 936.0
+offset_top = 14.0
+offset_right = 1080.0
+offset_bottom = 111.0
+
+[node name="Label" type="Label" parent="tmor" unique_id=45998291]
+layout_mode = 0
+offset_right = 138.0
+offset_bottom = 94.0
+theme_override_font_sizes/font_size = 70
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="tmor" unique_id=1609956344]
+position = Vector2(-77, 45)
+texture = ExtResource("2_vcvjm")

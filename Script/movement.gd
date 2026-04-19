@@ -6,6 +6,8 @@ extends CharacterBody2D
 @onready var sprite = $AnimatedSprite2D
 @onready var Asprite = $AnimationPlayer
 
+
+
 var gravty = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 var bpm: float = 120.0
@@ -37,7 +39,9 @@ func _physics_process(delta: float) -> void:
 			sprite.play("dusma")
 			
 	# Eğer yerdeysek yerçekimini biriktirme, sıfırla
-	elif is_on_floor():
+	elif is_on_floor() :
+		
+		sprite.play("idle")
 		velocity.y = 0
 		can_jump = true
 
@@ -55,6 +59,7 @@ func _ready():
 	$AnimationPlayer.play("RESET")
 
 func _input(event):
+	
 	if event.is_action_pressed("ui_right"):
 		try_move(Vector2.RIGHT)
 		
@@ -116,13 +121,39 @@ func try_move(direction: Vector2):
 			
 			last_hit_beat = closest_beat_time 
 			
+			# 1. Önce hedefin neresi olduğunu hesapla
 			var target_position = position + (direction * move_distance)
+			
+			# --- EKRAN SARMALAMA (WRAP) MANTIĞI ---
+			var ekran_genisligi = 330
+			 # Kendi ekran genişliğini yaz
+			
+			# Eğer sol taraftan dışarı çıkarsa (0'ın altına düşerse)
+			if target_position.x < 0:
+				position.x = ekran_genisligi # Karakteri anında sağ tarafa ışınla
+				target_position.x = ekran_genisligi - move_distance # Hedefi de sağdan içeri doğru ayarla
+				
+			# Eğer sağ taraftan dışarı çıkarsa
+			elif target_position.x > ekran_genisligi:
+				position.x = 0 # Karakteri anında sol tarafa ışınla
+				target_position.x = move_distance # Hedefi de soldan içeri doğru ayarla
+			
+			# --- YENİ EKLENEN KISIM: SINIRLARI BELİRLE ---
+			# Karakterin X (sağ-sol) pozisyonunu ekranın sınırları içine hapis et.
+			# ÖRNEK: Ekranın sol kenarı 30. piksel, sağ kenarı 450. piksel olsun.
+			# Bu sayıları kendi oyununun ekran genişliğine göre (örneğin 0 ile 800 arası) değiştirmelisin!
+			var sol_sinir = 30
+			var sag_sinir = 450
+			target_position.x = clamp(target_position.x, sol_sinir, sag_sinir)
+			# ----------------------------------------------
+			
+			# 2. Tween'i başlat ve kelepçelenmiş yeni hedefe git
 			var tween = create_tween()
 			tween.tween_property(self, "position", target_position, move_duration)\
 				.set_trans(Tween.TRANS_SINE)\
 				.set_ease(Tween.EASE_OUT)
 				
-			# 2. TWEEN BİTTİ: Anahtarı geri kapat (lambda fonksiyonu ile tek satırda hallediyoruz)
+			# 2. TWEEN BİTTİ: Anahtarı geri kapat
 			tween.finished.connect(func(): is_moving_with_tween = false)
 			
 			canvas_layer.combo_index += 1 

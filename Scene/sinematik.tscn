@@ -1,3 +1,46 @@
 [gd_scene format=3 uid="uid://bxj7wud1gvjud"]
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_a8mp2"]
+load_path = "res://.godot/imported/sinamatik.png-8ec237c77d595a2953ee0d0b0b0c758b.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mujh5"]
+atlas = SubResource("CompressedTexture2D_a8mp2")
+region = Rect2(0, 0, 160, 90)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kmcvu"]
+atlas = SubResource("CompressedTexture2D_a8mp2")
+region = Rect2(160, 0, 160, 90)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2wi7n"]
+atlas = SubResource("CompressedTexture2D_a8mp2")
+region = Rect2(320, 0, 160, 90)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2celm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mujh5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kmcvu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2wi7n")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
+
 [node name="sinematik" type="Node2D" unique_id=730345984]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=460508848]
+position = Vector2(570, 330)
+scale = Vector2(1.456971, 1.479248)
+sprite_frames = SubResource("SpriteFrames_2celm")
+autoplay = "default"
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1858234093]
+position = Vector2(570, 330)
+scale = Vector2(2.5345514, 0.46662936)
+zoom = Vector2(5, 5)
