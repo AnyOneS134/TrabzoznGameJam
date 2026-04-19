@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://x51nu2lfn3kk"]
+
+[ext_resource type="Script" uid="uid://cm4q6tahot2sc" path="res://Script/altın.gd" id="1_7kdq0"]
+[ext_resource type="Texture2D" uid="uid://77tbdqhs253i" path="res://Sprite/Engeler/sari.png" id="1_8fv65"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7kdq0"]
+
+[node name="altın" type="Area2D" unique_id=2039136841]
+script = ExtResource("1_7kdq0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1905329997]
+shape = SubResource("CircleShape2D_7kdq0")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1905713203]
+position = Vector2(6.556511e-07, 0)
+scale = Vector2(0.17142856, 0.53333336)
+texture = ExtResource("1_8fv65")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
