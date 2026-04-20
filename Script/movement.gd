@@ -5,6 +5,7 @@ extends CharacterBody2D
 @onready var canvas_layer = $"../CanvasLayer"
 @onready var sprite = $AnimatedSprite2D
 @onready var Asprite = $AnimationPlayer
+@onready var desh = $desh
 
 
 
@@ -12,7 +13,7 @@ var gravty = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 var bpm: float = 120.0
 var seconds_per_beat: float 
-var hit_tolerance: float = 0.17 
+var hit_tolerance: float = 0.17
 #	var combo --> art arda 5 kombo olursa eğer +1 süre eklenir 
 # 1. Mesafe Artırıldı: Karakterin daha uzun ilerlemesi için değeri yükselttik (Örn: 64 yerine 128)
 var move_distance: float = 70 
@@ -41,7 +42,7 @@ func _physics_process(delta: float) -> void:
 	# Eğer yerdeysek yerçekimini biriktirme, sıfırla
 	elif is_on_floor() :
 		
-		sprite.play("idle")
+		
 		velocity.y = 0
 		can_jump = true
 
@@ -107,15 +108,19 @@ func try_move(direction: Vector2):
 
 			if direction == Vector2.RIGHT:
 				sprite.play("desh")
+				desh.play()
 				sprite.flip_h = false
 			elif direction == Vector2.LEFT:
 				sprite.play("desh")
+				desh.play()
 				sprite.flip_h = true
 			elif direction == Vector2.UP:
 				can_jump = false
+				desh.play()
 				sprite.play("ziplama")
 			elif direction == Vector2.DOWN:
 				sprite.play("dusma")
+				
 				# Zıplama animasyonu burada oynar
 			print("Ritim yakalandı! Sapma: ", time_difference)
 			
@@ -162,7 +167,7 @@ func try_move(direction: Vector2):
 			
 		else:
 			print("Ritim kaçtı! Sapma: ", time_difference)
-			canvas_layer.kalan_sure -= 1 
+			
 			canvas_layer.combo_index = 0
 			canvas_layer.kombo_label.text = str(canvas_layer.combo_index)
 

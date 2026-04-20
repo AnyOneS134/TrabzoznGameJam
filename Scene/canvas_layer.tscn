@@ -1,16 +1,79 @@
 [gd_scene format=3 uid="uid://dikw5b7aj31wl"]
 
 [ext_resource type="Script" uid="uid://cv2mlc0rvww66" path="res://canvas_layer.gd" id="1_ml06h"]
-[ext_resource type="Texture2D" uid="uid://bpxbi1jjep6km" path="res://Sprite/hava blok (1).png" id="2_vcvjm"]
+[ext_resource type="Texture2D" uid="uid://c8meuxboawhpd" path="res://Sprite/Butoonlar/TÜMÖR.png" id="2_vcvjm"]
+[ext_resource type="Texture2D" uid="uid://ovbb00tmhqy4" path="res://Sprite/Butoonlar/NÖRON.png" id="3_p2t86"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p2t86"]
+bg_color = Color(0.25490198, 0.69411767, 0.7764706, 0.7647059)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q4in3"]
+bg_color = Color(0.25490198, 0.69411767, 0.7764706, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_442g7"]
+bg_color = Color(0.25490198, 0.69411767, 0.7764706, 0.7647059)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_brref"]
+atlas = ExtResource("2_vcvjm")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jmcyw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_brref")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_di31r"]
+atlas = ExtResource("3_p2t86")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q4in3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_di31r")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vcvjm"]
+
+[sub_resource type="FontVariation" id="FontVariation_p2t86"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_di31r"]
 
 [node name="CanvasLayer" type="CanvasLayer" unique_id=565253147]
 script = ExtResource("1_ml06h")
+kalan_sure = 80.0
 
 [node name="Sayac" type="Panel" parent="." unique_id=1274239751]
 offset_left = 387.0
 offset_top = 9.0
 offset_right = 708.0
 offset_bottom = 100.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_p2t86")
 
 [node name="Label" type="Label" parent="Sayac" unique_id=963851340]
 layout_mode = 1
@@ -35,6 +98,7 @@ offset_left = 47.0
 offset_top = 7.0
 offset_right = 191.0
 offset_bottom = 104.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_q4in3")
 
 [node name="Label" type="Label" parent="Kombo" unique_id=2018040499]
 layout_mode = 0
@@ -50,16 +114,74 @@ offset_left = 936.0
 offset_top = 14.0
 offset_right = 1080.0
 offset_bottom = 111.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_442g7")
 
 [node name="Label" type="Label" parent="tmor" unique_id=45998291]
 layout_mode = 0
 offset_right = 138.0
-offset_bottom = 94.0
+offset_bottom = 96.0
+scale = Vector2(1, 0.98421013)
 theme_override_font_sizes/font_size = 70
 text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Sprite2D" type="Sprite2D" parent="tmor" unique_id=1609956344]
-position = Vector2(-77, 45)
-texture = ExtResource("2_vcvjm")
+[node name="tm" type="AnimatedSprite2D" parent="tmor" unique_id=1199557846]
+position = Vector2(-46, 45)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_jmcyw")
+autoplay = "default"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="tmor" unique_id=1271171413]
+position = Vector2(-131, 47.000004)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_q4in3")
+
+[node name="Kaybettin" type="Panel" parent="." unique_id=1602569912]
+visible = false
+offset_right = 1165.0
+offset_bottom = 656.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_vcvjm")
+
+[node name="Label" type="Label" parent="Kaybettin" unique_id=2111930665]
+layout_mode = 0
+offset_left = 485.0
+offset_top = 211.0
+offset_right = 738.0
+offset_bottom = 309.0
+theme_override_fonts/font = SubResource("FontVariation_p2t86")
+theme_override_font_sizes/font_size = 60
+text = "Ded"
+
+[node name="Button" type="Button" parent="Kaybettin" unique_id=445594626]
+layout_mode = 0
+offset_left = 364.0
+offset_top = 426.0
+offset_right = 775.0
+offset_bottom = 503.0
+theme_override_font_sizes/font_size = 50
+text = "Try Again"
+
+[node name="Panel" type="Panel" parent="." unique_id=739561908]
+visible = false
+offset_right = 1169.0
+offset_bottom = 656.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_di31r")
+
+[node name="Label" type="Label" parent="Panel" unique_id=1441966102]
+layout_mode = 0
+offset_left = 441.0
+offset_top = 211.0
+offset_right = 753.0
+offset_bottom = 321.0
+theme_override_font_sizes/font_size = 60
+text = "aaaaaa"
+
+[node name="Button" type="Button" parent="Panel" unique_id=1893521048]
+layout_mode = 0
+offset_left = 322.0
+offset_top = 426.0
+offset_right = 809.0
+offset_bottom = 544.0
+theme_override_font_sizes/font_size = 50
+text = "Next"

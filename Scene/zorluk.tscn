@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://2d760ro3wlny"]
+
+[ext_resource type="Script" uid="uid://cc6lw203k8gb2" path="res://Scene/zorluk.gd" id="1_tiqg2"]
+[ext_resource type="Texture2D" uid="uid://bovkjlxga62u7" path="res://Sprite/Butoonlar/başla23 buton.png" id="2_8pqfo"]
+[ext_resource type="Texture2D" uid="uid://75bwg7imu7pr" path="res://Sprite/arka plan3.png" id="2_tiqg2"]
+[ext_resource type="Texture2D" uid="uid://d2s3xwg4n3wrx" path="res://Sprite/Butoonlar/başla buton.png" id="3_tiqg2"]
+
+[node name="zorluk" type="Node2D" unique_id=1322388877]
+script = ExtResource("1_tiqg2")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1081607489]
+position = Vector2(578, 344.99997)
+scale = Vector2(7.2124996, 7.666666)
+texture = ExtResource("2_tiqg2")
+
+[node name="Button2" type="Button" parent="." unique_id=31800292]
+offset_left = 681.0
+offset_top = 357.0
+offset_right = 1019.0
+offset_bottom = 434.0
+theme_override_font_sizes/font_size = 50
+text = "Zor"
+
+[node name="Button3" type="Button" parent="." unique_id=1084723820]
+offset_left = 151.0
+offset_top = 336.0
+offset_right = 489.0
+offset_bottom = 432.0
+theme_override_font_sizes/font_size = 50
+text = "Kolay"
+
+[node name="Başla23Buton" type="Sprite2D" parent="." unique_id=539894646]
+position = Vector2(331, 387.00003)
+scale = Vector2(3, 3)
+texture = ExtResource("2_8pqfo")
+
+[node name="BaşlaButon" type="Sprite2D" parent="." unique_id=417733334]
+position = Vector2(837, 391)
+scale = Vector2(3, 3)
+texture = ExtResource("3_tiqg2")
+
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Button3" to="." method="_on_button_3_pressed"]

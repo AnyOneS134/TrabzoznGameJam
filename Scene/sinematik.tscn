@@ -1,18 +1,19 @@
 [gd_scene format=3 uid="uid://bxj7wud1gvjud"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_a8mp2"]
-load_path = "res://.godot/imported/sinamatik.png-8ec237c77d595a2953ee0d0b0b0c758b.ctex"
+[ext_resource type="Script" uid="uid://b53x0ovd8n2b1" path="res://Scene/sinematik.gd" id="1_kmcvu"]
+[ext_resource type="Texture2D" uid="uid://4vgbnk3giu3i" path="res://Sprite/Player/sinamatik.png" id="1_nf2c3"]
+[ext_resource type="AudioStream" uid="uid://cdbk2xr6r8scg" path="res://Ses/sinamatik/0419(1).WAV" id="2_mujh5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mujh5"]
-atlas = SubResource("CompressedTexture2D_a8mp2")
+atlas = ExtResource("1_nf2c3")
 region = Rect2(0, 0, 160, 90)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kmcvu"]
-atlas = SubResource("CompressedTexture2D_a8mp2")
+atlas = ExtResource("1_nf2c3")
 region = Rect2(160, 0, 160, 90)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2wi7n"]
-atlas = SubResource("CompressedTexture2D_a8mp2")
+atlas = ExtResource("1_nf2c3")
 region = Rect2(320, 0, 160, 90)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2celm"]
@@ -33,6 +34,7 @@ animations = [{
 }]
 
 [node name="sinematik" type="Node2D" unique_id=730345984]
+script = ExtResource("1_kmcvu")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=460508848]
 position = Vector2(570, 330)
@@ -44,3 +46,7 @@ autoplay = "default"
 position = Vector2(570, 330)
 scale = Vector2(2.5345514, 0.46662936)
 zoom = Vector2(5, 5)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=886179190]
+stream = ExtResource("2_mujh5")
+volume_db = -7.69

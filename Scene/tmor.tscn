@@ -1,9 +1,39 @@
 [gd_scene format=3 uid="uid://cibayivlxyseh"]
 
-[ext_resource type="Texture2D" uid="uid://3wgqjvelioif" path="res://Sprite/icon.svg" id="1_b5anx"]
 [ext_resource type="Script" uid="uid://uw4ngadifgqt" path="res://Scene/tmor.gd" id="1_nuahg"]
+[ext_resource type="Texture2D" uid="uid://c8meuxboawhpd" path="res://Sprite/Butoonlar/TÜMÖR.png" id="2_ksiij"]
+[ext_resource type="AudioStream" uid="uid://cleosjuxgm0l4" path="res://Ses/sonses/noron.wav" id="3_ksiij"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nuahg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xe3jf"]
+atlas = ExtResource("2_ksiij")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8cvv8"]
+atlas = ExtResource("2_ksiij")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g5h8m"]
+atlas = ExtResource("2_ksiij")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ltahf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xe3jf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8cvv8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g5h8m")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="tmor" type="Area2D" unique_id=1147737813]
 script = ExtResource("1_nuahg")
@@ -11,10 +41,14 @@ script = ExtResource("1_nuahg")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2137896806]
 shape = SubResource("CircleShape2D_nuahg")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1555945190]
-position = Vector2(1, 2.9802322e-08)
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=23868476]
+position = Vector2(5.9604645e-08, -1)
 rotation = -1.0471976
-scale = Vector2(0.1298136, 0.12524875)
-texture = ExtResource("1_b5anx")
+scale = Vector2(0.61962134, 0.73468745)
+sprite_frames = SubResource("SpriteFrames_ltahf")
+autoplay = "default"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=240932]
+stream = ExtResource("3_ksiij")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://dlippsi4q7e5e"]
+
+[ext_resource type="Texture2D" uid="uid://4vgbnk3giu3i" path="res://Sprite/Player/sinamatik.png" id="1_rabye"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dwou3"]
+atlas = ExtResource("1_rabye")
+region = Rect2(0, 0, 160, 90)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oakib"]
+atlas = ExtResource("1_rabye")
+region = Rect2(160, 0, 160, 90)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w27i7"]
+atlas = ExtResource("1_rabye")
+region = Rect2(320, 0, 160, 90)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_be8q6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dwou3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oakib")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w27i7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="son" type="Node2D" unique_id=791956630]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1860974754]
+position = Vector2(574.5, 325.5)
+scale = Vector2(7.24375, 7.2555556)
+sprite_frames = SubResource("SpriteFrames_be8q6")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=519149411]
+offset_left = 323.0
+offset_top = 420.0
+offset_right = 1566.0
+offset_bottom = 765.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 70
+bbcode_enabled = true
+text = "[wave amp=50 freq=4]KAZANDINIZZ !!![/wave]"

@@ -1,9 +1,39 @@
 [gd_scene format=3 uid="uid://x51nu2lfn3kk"]
 
 [ext_resource type="Script" uid="uid://cm4q6tahot2sc" path="res://Script/altın.gd" id="1_7kdq0"]
-[ext_resource type="Texture2D" uid="uid://77tbdqhs253i" path="res://Sprite/Engeler/sari.png" id="1_8fv65"]
+[ext_resource type="Texture2D" uid="uid://ovbb00tmhqy4" path="res://Sprite/Butoonlar/NÖRON.png" id="2_iwmac"]
+[ext_resource type="AudioStream" uid="uid://cleosjuxgm0l4" path="res://Ses/sonses/noron.wav" id="3_iwmac"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7kdq0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_awgnv"]
+atlas = ExtResource("2_iwmac")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dtau7"]
+atlas = ExtResource("2_iwmac")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_trhtv"]
+atlas = ExtResource("2_iwmac")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_owrax"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_awgnv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dtau7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_trhtv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="altın" type="Area2D" unique_id=2039136841]
 script = ExtResource("1_7kdq0")
@@ -11,9 +41,11 @@ script = ExtResource("1_7kdq0")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1905329997]
 shape = SubResource("CircleShape2D_7kdq0")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1905713203]
-position = Vector2(6.556511e-07, 0)
-scale = Vector2(0.17142856, 0.53333336)
-texture = ExtResource("1_8fv65")
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=1091594183]
+sprite_frames = SubResource("SpriteFrames_owrax")
+autoplay = "default"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=989433674]
+stream = ExtResource("3_iwmac")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

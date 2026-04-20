@@ -1,16 +1,32 @@
 [gd_scene format=3 uid="uid://dn0pu3dou3q0d"]
 
 [ext_resource type="Script" uid="uid://b5u8cec831p7t" path="res://Script/ana_menu.gd" id="1_085df"]
+[ext_resource type="Texture2D" uid="uid://c0j8k3614bl22" path="res://Sprite/arka plan2.png" id="2_fgxap"]
+[ext_resource type="AudioStream" uid="uid://bwqqd0xx7wsn1" path="res://Ses/sonses/menu.wav" id="3_2yujt"]
+[ext_resource type="Texture2D" uid="uid://bbsl7usna61y6" path="res://Sprite/Butoonlar/başla2 buton.png" id="3_bah4m"]
 
 [node name="AnaMenu" type="Node2D" unique_id=968554928]
 script = ExtResource("1_085df")
 
+[node name="ArkaPlan2" type="Sprite2D" parent="." unique_id=1572075537]
+position = Vector2(574, 322.00003)
+scale = Vector2(7.1874995, 7.244445)
+texture = ExtResource("2_fgxap")
+
 [node name="Button" type="Button" parent="." unique_id=152957906]
-offset_left = 378.0
-offset_top = 422.0
-offset_right = 758.0
-offset_bottom = 532.0
+offset_left = 307.0
+offset_top = 420.0
+offset_right = 848.0
+offset_bottom = 491.0
 theme_override_font_sizes/font_size = 50
-text = "Play"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Button" unique_id=1193684300]
+stream = ExtResource("3_2yujt")
+autoplay = true
+
+[node name="Başla2Buton" type="Sprite2D" parent="." unique_id=1650687378]
+position = Vector2(577, 452.00003)
+scale = Vector2(3.7562497, 3.7031267)
+texture = ExtResource("3_bah4m")
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
